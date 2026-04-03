@@ -3212,6 +3212,11 @@ aside .licencias .active::before {
 .fade-in {
   opacity: 1 !important;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}
 @layer base {
   .tooltip-arrow,.tooltip-arrow:before {
     position: absolute;
