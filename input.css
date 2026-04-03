@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import url("https://use.typekit.net/hzq8ypw.css");;
+@import "flowbite/src/themes/default";
+@source "../**/*.php";
+@source "../**/*.html";
+
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+@theme {
+  /* Paleta */
+  --yellow: #FDBB17;
+  --blue: #006ECC;
+  --green: #00A249;
+  --pink:#F35EA5;
+
+  /* Fuentes tipográficas */
+  --font-principal: "sofia-pro", sans-serif;
+  --font-titulos: "neighbor", serif;
+
+  --text-xxs:0.5rem;
+  --cursor-cross: url('img/x-solid-full.svg') 16 16;
+}
+
+body {
+  font-family: var(--font-principal);
+}
+h1, h2, h3, h4, h5, h6 , .font-main {
+  font-family: var(--font-titulos);
+}
+
+.bg-w-yellow {
+  background-color: var(--yellow);
+}
+.bg-w-blue {
+  background-color: var(--blue);
+}
+.bg-w-green {
+  background-color: var(--green);
+}
+
+.bg-w-pink {
+  background-color: var(--pink);
+}
+
+.font-wero-main {
+  font-family: var(--font-titulos);
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 50s linear infinite;
+  }
+}
+
+@layer components {
+  aside button[aria-expanded="true"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    font-weight: 600;
+  }
+}
+
+button:hover {
+  cursor:pointer
+}
+aside a {
+  font-family: var(--font-principal);
+}
+aside .active {
+  position: relative;
+  color: black;
+  font-weight: semibold;
+}
+aside .active::before {
+content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background-color: var(--blue);
+    position: absolute;
+    border-radius: 10px;
+    top: 40%;
+    left: -14px;
+  }
+
+aside .licencias .active {
+  background-color: black;
+  color:white
+}
+aside .licencias .active::before {
+  display: none;
+}
+
+#main-product-image, #main-product-video {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0 !important;
+}
+
+.fade-in {
+    opacity: 1 !important;
+}
