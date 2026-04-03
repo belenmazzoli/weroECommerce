@@ -226,7 +226,7 @@
                 <span id="countdown" class="text-3xl font-black text-weroBlue">10</span>
             </div>
 
-            <a href="index.html" class="block w-full py-4 bg-black text-white font-black uppercase text-sm rounded-full hover:bg-gray-800 transition">
+            <a href="listado.html" class="block w-full py-4 bg-black text-white font-black uppercase text-sm rounded-full hover:bg-gray-800 transition">
                 Volver ahora
             </a>
         </div>
@@ -236,15 +236,13 @@
 
 <script>
 document.getElementById('btn-confirm-order')?.addEventListener('click', function() {
-    // 1. Aquí podrías agregar la lógica para enviar los datos (fetch/api)
+
     console.log("Enviando pedido...");
 
-    // 2. Levantamos el modal de Flowbite manualmente
     const $targetEl = document.getElementById('success-modal');
     const modal = new Modal($targetEl);
     modal.show();
 
-    // 3. Iniciamos el contador de 10 segundos
     let timeLeft = 10;
     const countdownEl = document.getElementById('countdown');
 
@@ -254,7 +252,7 @@ document.getElementById('btn-confirm-order')?.addEventListener('click', function
 
         if (timeLeft <= 0) {
             clearInterval(timer);
-            window.location.href = 'index.html'; // Redirigir a la home
+            window.location.href = 'listado.html'; // Redirigir a la home
         }
     }, 1000);
 });
