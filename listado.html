@@ -723,7 +723,7 @@
 </div>    
 
 <script>
-    // Definimos los medios del producto (esto podrías generarlo dinámicamente)
+
     const productMedia = [
         { type: 'img', src: 'img/WE4184.jpg' },
         { type: 'img', src: 'img/WE4184_01.jpg' },
@@ -733,7 +733,6 @@
     let currentIndex = 0;
 
     function updateModalMedia(index) {
-    // Si ya estamos en esa imagen, no hacemos nada para evitar parpadeos
     if (index === currentIndex && !document.getElementById('main-product-image').classList.contains('fade-out')) return;
 
     currentIndex = index;
@@ -742,19 +741,16 @@
     const vid = document.getElementById('main-product-video');
     const thumbs = document.querySelectorAll('.product-thumb');
 
-    // 1. Iniciamos el efecto de salida limpiando clases previas
     img.classList.remove('fade-in');
     vid.classList.remove('fade-in');
     img.classList.add('fade-out');
     vid.classList.add('fade-out');
 
-    // 2. Esperamos el tiempo de la transición (0.4s)
     setTimeout(() => {
         if (item.type === 'img') {
             img.src = item.src;
             img.classList.remove('hidden', 'fade-out');
             
-            // Forzamos un reflow para que el navegador note el cambio antes de aplicar fade-in
             void img.offsetWidth; 
             
             img.classList.add('fade-in');
@@ -771,7 +767,6 @@
             vid.play();
         }
 
-        // 3. Sincronización de miniaturas (WERO Blue)
         thumbs.forEach((t, i) => {
             if(i === currentIndex) {
                 t.classList.add('border-w-blue', 'border-2');
@@ -795,8 +790,7 @@
         updateModalMedia(prev);
     }
 
-    // 2. Lógica de los botones + y -
-    // Asegúrate de ponerle la clase "btn-minus", "btn-plus" y "qty-input" a tus elementos
+    // buttons
     document.addEventListener('click', function(e) {
         const input = document.querySelector('.qty-input');
         if (!input) return;
@@ -814,9 +808,8 @@
     const productGrid = document.getElementById('product-grid');
     const trigger = document.getElementById('infinite-scroll-trigger');
     let loadedProducts = 15; // Empezamos con 15
-    const totalProducts = 100; // Tu límite total
+    const totalProducts = 100; // limite dinamico total productos visibles
 
-    // Función para crear el HTML de un nuevo producto (usa tu maqueta actual)
     function createProductHTML() {
         return `
         <div class="product group relative flex flex-col bg-white hover:cursor-pointer rounded-xl overflow-hidden  duration-300 mb-4">
@@ -863,7 +856,6 @@
                 </div>`;
     }
 
-    // Intersection Observer
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && loadedProducts < totalProducts) {
             loadMoreProducts();
@@ -871,7 +863,6 @@
     }, { threshold: 1.0 });
 
     function loadMoreProducts() {
-        // Simulamos una pequeña demora de carga
         setTimeout(() => {
             for (let i = 0; i < 15; i++) {
                 if (loadedProducts < totalProducts) {
@@ -880,7 +871,7 @@
                 }
             }
             
-            // Si ya cargamos los 100, ocultamos el cargando
+            // Si ya cargamos los 100, ocultamos el cargando -> dinamico segun cantidad de productos
             if (loadedProducts >= totalProducts) {
                 trigger.classList.add('hidden');
                 observer.unobserve(trigger);
