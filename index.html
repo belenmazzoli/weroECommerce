@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WERO - Store</title>
+    
+    <link rel="stylesheet" href="https://use.typekit.net/hzq8ypw.css">
+    <link href="../dist/output.css" rel="stylesheet">
+
+    <link rel="icon" href="images/werito-b.svg" type="image/svg">
+    
+
+    
+</head>
+
+<body class="bg-w-yellow font-wero-body min-h-screen flex flex-col items-center justify-between py-12">
+
+    <div class="mt-8">
+        <img src="img/logo.png" alt="Wero Logo" class="w-64 md:w-80">
+    </div>
+
+    <main class="w-full max-w-xs flex flex-col gap-6">
+        <form action="index.html" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <label for="usuario" class="font-bold text-sm">Usuario:</label>
+                <input type="text" id="usuario" class="w-full h-10 px-3 border-none rounded-4xl :ring-2 focus:ring-black outline-none transition-shadow">
+            </div>
+            
+            <div class="flex flex-col gap-1">
+                <label for="password" class="font-bold text-sm">Password:</label>
+                <input type="password" id="password" class="w-full h-10 px-3  rounded-4xl border-none focus:ring-2 focus:ring-black outline-none transition-shadow">
+            </div>
+
+            <div class="flex justify-center mt-4">
+                <button onclick="window.location.href='listado.html'" type="button" class="bg-black text-white font-black px-8 py-2 rounded-full uppercase text-sm hover:scale-105 transition-transform">
+                    Ingresar
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <div class="mb-8">
+        <h2 class="font-wero-main text-3xl md:text-5xl font-black tracking-tighter">
+            All Kinds of Fun
+        </h2>
+    </div>
+
+
+
+
+<script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+
+</body>
+</html>
