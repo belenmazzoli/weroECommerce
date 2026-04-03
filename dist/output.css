@@ -2978,7 +2978,7 @@
       color: var(--color-gray-400);
     }
   }
- /* .dark\:text-white {
+ .dark\:text-white {
     @media (prefers-color-scheme: dark) {
       color: var(--color-white);
     }
